@@ -1,3 +1,34 @@
+<script>
+     $("#form").submit(function(event){
+
+
+        //anula a ação do submit tradicional "botao" ou F5
+         event.preventDefault();
+
+         $.ajax({
+            type: "POST",
+            url: "router.php?controller=movimentacaoPesquisa&modo=pesquisa",
+            //alert (url);
+            data: new FormData($("#form")[0]),
+            cache:false,
+            contentType:false,
+            processData:false,
+            async:true,
+            success: function(dados){
+                 $('.dados').html(dados);
+                 //alert(dados);
+
+            }
+        });
+
+     });
+
+
+
+ </script>
+
+
+
 <div class="conteudo_produtos2">
   <h1>Produtos</h1>
 
@@ -5,6 +36,35 @@
 
     <div class="novoProduto" data-toggle="modal" data-target="#exampleModalMovimentacao">
 
+    </div>
+
+    <div class="pesquisa">
+      <form id="form" class="FrmPesquisa" action="" method="post">
+
+
+        <div class="form-group col-md-4">
+          <select name="slcMes" id="inputState" class="form-control">
+            <option  value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+            <option selected value="13">Todos</option>
+
+          </select>
+        </div>
+
+        <input type="submit" class="btn btn-primary" name="btnEnviar" value="Pesquisar">
+
+
+      </form>
     </div>
 
   </div>
@@ -32,7 +92,7 @@
 
 
           $controller_movimentacao= new controllerMovimentacao();
-          $list=$controller_movimentacao::Selecionar();
+          $list=$controller_movimentacao::pesquisa();
           $cont = 0;
 
           while ($cont <count($list)) {

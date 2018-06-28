@@ -44,6 +44,12 @@
           <div class="titulo_menu">
               <p>Produtos</p>
           </div>
+
+          <div class="item_menu">
+            <p><a href="?pag=home">Home</a></p>
+          </div>
+
+
           <div class="item_menu">
             <p><a href="?pag=gerenciamento">Gerenciamento</a></p>
           </div>
@@ -66,6 +72,11 @@
             <?php
             $pag = $_GET['pag'];
             switch ($pag) {
+
+              case 'home':
+                    require_once 'principal.php';
+                break;
+
               case 'gerenciamento':
                     require_once 'gerenciamento_view.php';
                 break;

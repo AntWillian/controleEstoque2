@@ -9,6 +9,7 @@ class Movimentacao{
   public $idUsuario;
   public $descricao;
   public $quantidade;
+  public $mes;
 
   public $quantidadeProduto;
 
@@ -18,8 +19,9 @@ class Movimentacao{
 
   // NOVA MOVIMENTACAO
   public function Insert($dados){
-    $sql="insert into tbl_movimentacao (idProduto, idTipoMovimentacao, idUsuario, descricao, quantidade,data)
-    values('".$dados->idProduto."', '".$dados->idTipoMovimentacao."', '".$dados->idUsuario."', '".$dados->descricao."', '".$dados->quantidade."',CURDATE())";
+    $today = date(" n");
+    $sql="insert into tbl_movimentacao (idProduto, idTipoMovimentacao, idUsuario, descricao, quantidade,data,mes)
+    values('".$dados->idProduto."', '".$dados->idTipoMovimentacao."', '".$dados->idUsuario."', '".$dados->descricao."', '".$dados->quantidade."',CURDATE(),'".$today."')";
 
     echo $sql."</br>";
 
@@ -100,6 +102,9 @@ class Movimentacao{
 
       $conex->Desconectar();
   }
+
+
+  
 
 }
 

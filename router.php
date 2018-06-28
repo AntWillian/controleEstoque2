@@ -37,6 +37,50 @@ echo "string";
                //echo "string";
             break;
 
+      case 'pesquisa':
+            $controller_movimentacao= new controllerMovimentacao();
+            $controller_movimentacao::pesquisa();
+             //echo "string";
+          break;
+
+
+      }
+
+
+      // movimentacao
+      case 'movimentacaoPesquisa':
+
+      require_once("controllers/controller_movimentacao.php");
+      require_once("viewModel/movimentacoes_class.php");
+
+      switch ($_GET['modo']) {
+
+      case 'pesquisa':
+            $controller_movimentacao= new controllerMovimentacao();
+            $controller_movimentacao::pesquisa();
+             //echo "string";
+          break;
+
+
+      }
+
+
+      // graficos
+      case 'graficoPesquisa':
+
+      //Inclui as classes
+      require_once("controllers/controller_movimentacao.php");
+      require_once("models/grafico_class.php");
+
+      switch ($_GET['modo']) {
+
+      case 'pesquisa':
+            $controller_movimentacao= new controllerMovimentacao();
+            $controller_movimentacao::pesquisaGrafico();
+             //echo "string";
+          break;
+
+
       }
 
     }

@@ -221,3 +221,44 @@ width: 98%;
   overflow: hidden;
   background-color: red;
 }
+
+/* Grafico */
+
+.grafico{
+  width: 80%;
+  height: auto;
+  min-height: 100px;
+  overflow: hidden;
+  background-color: red;
+  margin: auto;
+}
+
+.barraEntrada{
+  /* width: 70px; */
+  height: 20px;
+  background-color: green;
+  margin-bottom: 2px;
+  /* float: left; */
+margin-left: 70px;
+
+}
+
+.barraSaida{
+  /* width: 50%; */
+  height: 20px;
+  background-color: purple;
+  margin-bottom: 10px;
+  /* float: left; */
+margin-left: 70px;
+}
+
+.datas{
+  width: 70px;
+  height: 20px;
+  background-color: #cacaca;
+  margin-bottom: 2px;
+  float: left;
+  font-size: 10px;
+  padding-top: 5px;
+  text-align: center;
+}

@@ -21,10 +21,52 @@
       }
 
 
+      public function SelecionarGrafico(){
+        $movimentacao= new controllerGrafico();
+        return $movimentacao::SelectGrafico();
+      }
+
       public function Selecionar(){
         $movimentacao= new Movimentacoes();
         return $movimentacao::Select();
       }
+
+      public function pesquisa(){
+        $movimentacao= new Movimentacoes();
+
+        @$selecao = $_POST['slcMes'];
+
+        if ($selecao == "") {
+          $movimentacao ->mes = "";
+        }else {
+          $movimentacao ->mes = $_POST['slcMes'];
+        }
+
+
+
+
+        return $movimentacao::pesquisa($movimentacao);
+      }
+
+
+      public function pesquisaGrafico(){
+        $movimentacao= new controllerGrafico();
+
+        @$selecao = $_POST['slcMes'];
+
+        if ($selecao == "") {
+          $movimentacao ->mes = "";
+        }else {
+          $movimentacao ->mes = $_POST['slcMes'];
+        }
+
+
+
+
+        return $movimentacao::pesquisa($movimentacao);
+      }
+
+
 
   }
 
