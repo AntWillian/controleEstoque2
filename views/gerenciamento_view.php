@@ -3,15 +3,16 @@
   <h1>Produtos</h1>
 
   <div class="botoes">
-    <div class="novoProduto" data-toggle="modal" data-target="#exampleModal">
+    <!-- <div class="novoProduto" data-toggle="modal" data-target="#exampleModal">
+
+    </div> -->
+
+    <button data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-success margin">Novo Produto</button>
+    <button data-toggle="modal" data-target="#exampleModalMovimentacao" type="button" class="btn btn-primary margin">Movimentação</button>
 
     </div>
 
-    <div class="novoProduto" data-toggle="modal" data-target="#exampleModalMovimentacao">
-
-    </div>
-
-    <div class="dados">
+    <div class="dadosDaMovimentacao">
 
         <table class="table ls-table">
           <thead>

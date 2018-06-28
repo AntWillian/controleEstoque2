@@ -81,7 +81,7 @@ class Movimentacoes{
       if ($mesSelecionado == 13 || $mesSelecionado == '') {
         $sql="select * from view_movimentacoes order by idMovimentacao desc";
 
-        echo $sql;
+        //echo $sql;
         $conex=new Mysql_db();
         //Faz a conexão com o banco
         $PDOconex = $conex->Conectar();
@@ -117,7 +117,7 @@ class Movimentacoes{
         }
       }else {
         $sql="select * from view_movimentacoes where mes=".$mesSelecionado." order by idMovimentacao desc";
-          echo $sql;
+        //  echo $sql;
         $conex=new Mysql_db();
         //Faz a conexão com o banco
         $PDOconex = $conex->Conectar();

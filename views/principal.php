@@ -34,7 +34,7 @@
     <form id="form" class="FrmPesquisa" action="" method="post">
 
 
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-4 barraPesquisa">
         <select name="slcMes" id="inputState" class="form-control">
           <option  value="1">Janeiro</option>
           <option value="2">Fevereiro</option>
@@ -53,108 +53,113 @@
         </select>
       </div>
 
-      <input type="submit" class="btn btn-primary" name="btnEnviar" value="Pesquisar">
+
+      <input type="submit" class="btn btn-primary " name="btnEnviar" value="Pesquisar">
 
 
     </form>
   </div>
 
-  <div class="grafico">
 
-    <?php
+  <div class="dadosGeral">
+      <div class="dadosGraficos">
 
-    //Inclui as classes
-    require_once("controllers/controller_movimentacao.php");
-    require_once("models/grafico_class.php");
+          <?php
 
-
-    $controller_cadUser= new controllerMovimentacao();
-    $list = $controller_cadUser::pesquisaGrafico();
-    $cont = 0;
-
-    if (count($list) == 0) {
-      echo "nenhum dado no mes";
-    }else{
-
-      while ($cont <count($list)) {
+          //Inclui as classes
+          require_once("controllers/controller_movimentacao.php");
+          require_once("models/grafico_class.php");
 
 
-        if ($list[$cont]->idTipoMovimentacao == 1) {
-           $cor='barraEntrada';
-         }else {
-           $cor='barraSaida';
-         }
+          $controller_cadUser= new controllerMovimentacao();
+          $list = $controller_cadUser::pesquisaGrafico();
+          $cont = 0;
 
-     ?>
-      <div class="datas">
-        <?php echo (utf8_decode($list[$cont]->data))  ?>
-      </div>
-      <div class="<?php echo $cor ?>" style="width:<?php echo (utf8_decode($list[$cont]->movimentos))  ?>px">
-        <?php echo (utf8_decode($list[$cont]->movimentos))  ?>
-      </div>
-
-
-
-      <?php
-      $cont+=1;
-
-        }
-      }
-       ?>
-  </div>
-
-
-
-    <div class="dados">
-
-        <table class="table ls-table">
-          <thead>
-            <tr>
-              <th class="ls-nowrap col-xs-3">Data</th>
-              <th class="hidden-xs">Entidade
-              <th class="hidden-xs">Tipo</th>
-              <th class="hidden-xs">Qnt. movim.</th>
-              <th class="ls-table-actions">Descricao</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <?php
-            //Inclui as classes
-            require_once("controllers/controller_movimentacao.php");
-            require_once("viewModel/movimentacoes_class.php");
-
-
-            $controller_movimentacao= new controllerMovimentacao();
-            $list=$controller_movimentacao::Selecionar();
-            $cont = 0;
+          if (count($list) == 0) {
+            echo "nenhum dado no mes";
+          }else{
 
             while ($cont <count($list)) {
 
+
               if ($list[$cont]->idTipoMovimentacao == 1) {
-                 $cor='corSaida';
+                 $cor='barraEntrada';
                }else {
-                 $cor='corEntrada';
+                 $cor='barraSaida';
                }
 
            ?>
-            <tr class="<?php echo $cor ?>">
-              <td><?php echo (utf8_decode($list[$cont]->data)) ?></td>
-              <td><?php echo (utf8_decode($list[$cont]->nome)) ?></td>
-              <td><?php
-               echo (utf8_decode($list[$cont]->tipo))
-               ?></td>
-              <td><?php echo (utf8_decode($list[$cont]->quantidadeMovimentacao)) ?></td>
-              <td>
-                <?php echo (utf8_decode($list[$cont]->descricao)) ?>
-              </td>
-            </tr>
+            <div class="datas">
+              <?php echo (utf8_decode($list[$cont]->data))  ?>
+            </div>
+            <div class="<?php echo $cor ?>" style="width:<?php echo (utf8_decode($list[$cont]->movimentos))  ?>px">
+              <?php echo (utf8_decode($list[$cont]->movimentos))  ?>
+            </div>
+
+
 
             <?php
-            $cont +=1;
+            $cont+=1;
+
+              }
             }
              ?>
-          </tbody>
-        </table>
-    </div>
+      </div>
+
+      <div class="dadosGraficos">
+        <div class="dadosDaMovimentacao">
+
+            <table class="table ls-table">
+              <thead>
+                <tr>
+                  <th class="ls-nowrap col-xs-3">Data</th>
+                  <th class="hidden-xs">Entidade
+                  <th class="hidden-xs">Tipo</th>
+                  <th class="hidden-xs">Qnt. movim.</th>
+                  <th class="ls-table-actions">Descricao</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <?php
+                //Inclui as classes
+                require_once("controllers/controller_movimentacao.php");
+                require_once("viewModel/movimentacoes_class.php");
+
+
+                $controller_movimentacao= new controllerMovimentacao();
+                $list=$controller_movimentacao::Selecionar();
+                $cont = 0;
+
+                while ($cont <count($list)) {
+
+                  if ($list[$cont]->idTipoMovimentacao == 1) {
+                     $cor='corSaida';
+                   }else {
+                     $cor='corEntrada';
+                   }
+
+               ?>
+                <tr class="<?php echo $cor ?>">
+                  <td><?php echo (utf8_decode($list[$cont]->data)) ?></td>
+                  <td><?php echo (utf8_decode($list[$cont]->nome)) ?></td>
+                  <td><?php
+                   echo (utf8_decode($list[$cont]->tipo))
+                   ?></td>
+                  <td><?php echo (utf8_decode($list[$cont]->quantidadeMovimentacao)) ?></td>
+                  <td>
+                    <?php echo (utf8_decode($list[$cont]->descricao)) ?>
+                  </td>
+                </tr>
+
+                <?php
+                $cont +=1;
+                }
+                 ?>
+              </tbody>
+            </table>
+        </div>
+      </div>
+  </div>
+
 </div>

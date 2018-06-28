@@ -42,7 +42,7 @@
       <form id="form" class="FrmPesquisa" action="" method="post">
 
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-4 barraPesquisa">
           <select name="slcMes" id="inputState" class="form-control">
             <option  value="1">Janeiro</option>
             <option value="2">Fevereiro</option>
@@ -71,7 +71,7 @@
 
 
 
-  <div class="dados">
+  <div class="dadosDaMovimentacao">
 
       <table class="table ls-table">
         <thead>

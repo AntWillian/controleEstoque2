@@ -2,13 +2,10 @@
   <h1>Produtos</h1>
 
   <div class="botoes">
-    <div class="novoProduto" data-toggle="modal" data-target="#exampleModal">
 
-    </div>
 
-    <div class="novoProduto" data-toggle="modal" data-target="#exampleModalMovimentacao">
+    <button data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-success margin">Novo Usuario</button>
 
-    </div>
 
     <div class="dados">
 
@@ -72,4 +69,67 @@
 
       // print_r($produtos);
      ?>
+  </div>
+
+  <!-- NOVO Usuario -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Novo Usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="FrmProdutos" action="router.php?controller=usuario&modo=novo" method="post">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Nome completo</label>
+              <input name="txtNome" type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome completo">
+            </div>
+
+
+            <div class="form-group">
+              <label for="formGroupExampleInput">Cpf</label>
+              <input name="txtCpf" type="text" class="form-control" id="formGroupExampleInput" placeholder="Cpf">
+            </div>
+
+
+            <div class="form-group">
+              <label for="formGroupExampleInput">Usuario</label>
+              <input name="txtUsuario" type="text" class="form-control" id="formGroupExampleInput" placeholder="Usuario">
+            </div>
+
+            <div class="form-group">
+              <label for="formGroupExampleInput">Senha</label>
+              <input name="txtSenha" type="text" class="form-control" id="formGroupExampleInput" placeholder="Senha">
+            </div>
+
+
+            <div class="form-group">
+              <label for="formGroupExampleInput">Data De nascimento</label>
+              <input name="txtDtnasc" type="date" class="form-control" id="formGroupExampleInput" placeholder="Senha">
+            </div>
+
+
+            <div class="form-group col-md-4">
+              <label for="inputState">Nivel</label>
+              <select name="slccategoria" id="inputState" class="form-control">
+                <option selected value="1">Admim</option>
+                <option value="2">cataloguista</option>
+              </select>
+            </div>
+
+
+            <div class="modal-footer">
+
+              <input type="submit" class="btn btn-primary" name="btnEnviar" value="Enviar">
+              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
   </div>
