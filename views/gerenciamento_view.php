@@ -21,6 +21,7 @@
               <th class="hidden-xs">Preço</th>
               <th class="hidden-xs">Quantidade</th>
               <th class="ls-table-actions">Ações</th>
+
             </tr>
           </thead>
           <tbody>
@@ -50,7 +51,12 @@
               <td><?php
                echo (utf8_decode("R$ ".str_replace(".", ",", $list[$cont]->preco)))
                ?></td>
-              <td><?php echo (utf8_decode($list[$cont]->quantidade)) ?></td>
+              <td>
+                <?php echo (utf8_decode($list[$cont]->quantidade));
+                if ($list[$cont]->quantidade <= 5 ) {
+                  echo "<span class='msg'> *Quantidade Minima </span>";
+                }
+               ?></td>
               <td>
                 <a href="/assets/javascripts/manual/fake-response/save.json" data-confirm-text="Confirma exclusão do item?" class="text-danger">
                   Excluir

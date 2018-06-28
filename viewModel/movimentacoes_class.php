@@ -55,7 +55,7 @@ class Movimentacoes{
           $listProdutos[$cont]->imagen=$rs['imagen'];
           $listProdutos[$cont]->idTipoMovimentacao=$rs['idTipoMovimentacao'];
           $listProdutos[$cont]->tipo=$rs['tipo'];
-          $listProdutos[$cont]->data=$rs['data'];
+          $listProdutos[$cont]->data=implode("/",array_reverse(explode("-",$rs['data'])));;
 
 
 

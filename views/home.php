@@ -52,6 +52,13 @@
             <p><a href="?pag=estoque">Estoque</a></p>
           </div>
 
+          <div class="titulo_menu">
+              <p>Usuarios</p>
+          </div>
+          <div class="item_menu">
+            <p><a href="?pag=usuarios">Gerenciamento</a></p>
+          </div>
+
 
         </div>
 
@@ -66,6 +73,10 @@
             case 'estoque':
                   require_once 'estoque_view.php';
               break;
+
+          case 'usuarios':
+                require_once 'usuario_view.php';
+            break;
 
 
               }
