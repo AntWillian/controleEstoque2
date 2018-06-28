@@ -63,6 +63,10 @@
                     require_once 'gerenciamento_view.php';
                 break;
 
+            case 'estoque':
+                  require_once 'estoque_view.php';
+              break;
+
 
               }
 

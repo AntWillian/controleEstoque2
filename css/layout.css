@@ -6,6 +6,14 @@
     background-color:#AFAFAF;
 }
 
+.corSaida{
+  background-color: #ff969b;
+}
+
+.corEntrada{
+    background-color:#b6f794;
+}
+
 
 body{
   margin: 0px;

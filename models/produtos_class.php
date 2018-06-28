@@ -17,7 +17,7 @@
     }
 
 
-    // CADSTRO DE NOVO PRODUTO
+    // CADASTRO DE NOVO PRODUTO
     public function Insert($dados){
       $sql="insert into tbl_produto ( codigo, descricao, preco, quantidade, idCategoria, imagen)
       values('".$dados->codigo."', '".$dados->descricao."', '".$dados->preco."', '".$dados->quantidade."', '".$dados->idCategoria."', 'nada')";
@@ -42,7 +42,6 @@
 
 
     // SELECIONAR TODOS OS PRODUTOS
-
     public function Select(){
 
         $sql="select * from tbl_produto order by idProduto desc";
