@@ -15,7 +15,7 @@
         $movimentacao ->descricao = $_POST['txtDescricao'];
         if (isset($_SESSION['idUsuario'])) {
         $id = $_SESSION['idUsuario'];
-        echo $id;
+      //  echo $id;
         $movimentacao ->idUsuario =$id;
         }
 

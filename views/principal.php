@@ -104,6 +104,27 @@
               }
             }
              ?>
+
+             <div class="legenda">
+
+                <div class="legenda1">
+                  <div class="quradrado ">
+
+                  </div>
+
+                  <p>Entrada</p>
+
+                </div>
+
+                <div class="legenda1">
+                  <div class="quradrado2">
+
+                  </div>
+
+                  <p>Saida</p>
+
+                </div>
+             </div>
       </div>
 
       <div class="dadosGraficos">
