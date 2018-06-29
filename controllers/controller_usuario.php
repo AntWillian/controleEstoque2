@@ -33,6 +33,41 @@ class controllerUsuario{
       $User::Login($User);
   }
 
+  public function Selecionar(){
+    $Produto= new Usuario();
+    return $Produto::Select();
+  }
+
+  // BUSCAR POR ID
+    public function Buscar(){
+
+      $idUsuario=$_GET['idUsuario'];
+
+      $Usuario= new Usuario();
+
+      $Usuario->idUsuario = $idUsuario;
+
+      return $Usuario::selectById($Usuario);
+
+    }
+
+    public function editar(){
+        $User = new Usuario();
+        $idUsuario=$_GET['idUsuario'];
+
+        $User ->nome = $_POST['txtNome'];
+        $User ->cpf = $_POST['txtCpf'];
+        $User ->usuario = $_POST['txtUsuario'];
+        $User ->senha = $_POST['txtSenha'];
+        $User ->dtnasc = $_POST['txtDtnasc'];
+
+        $User ->idUsuario = $idUsuario;
+
+
+        $User::Update($User);
+      }
+
+
 
 }
 

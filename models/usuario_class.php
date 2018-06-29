@@ -10,6 +10,8 @@
     public $senha;
     public $dtnasc;
     public $idNivel;
+    public $usuario;
+
 
 
     public  function __construct(){
@@ -19,8 +21,8 @@
 
     // CADASTRO DE NOVO PRODUTO
     public function Insert($dados){
-      $sql="insert into tbl_usuario ( nome, cpf, senha, dtnasc, idNivel)
-      values('".$dados->nome."', '".$dados->cpf."', '".$dados->senha."', '".$dados->dtnasc."', '".$dados->idNivel."')";
+      $sql="insert into tbl_usuario ( nome, cpf, senha, dtnasc, idNivel,usuario)
+      values('".$dados->nome."', '".$dados->cpf."', '".$dados->senha."', '".$dados->dtnasc."', '".$dados->idNivel."', '".$dados->usuario."')";
 
       echo $sql;
 
@@ -41,11 +43,11 @@
     }
 
 
-    // SELECIONAR TODOS OS PRODUTOS
+    // SELECIONAR TODOS OS Usuarios
     public function Select(){
 
-        $sql="select * from tbl_produto order by idProduto desc";
-        echo $sql;
+        $sql="select * from tbl_usuario order by idUsuario desc";
+        //echo $sql;
         $conex=new Mysql_db();
         //Faz a conexão com o banco
         $PDOconex = $conex->Conectar();
@@ -56,15 +58,16 @@
         $cont=0;
 
         while ($rs=$select->fetch(PDO::FETCH_ASSOC)) {
-            $listProdutos[] = new Produto();
+            $listUsuario[] = new Usuario();
 
-            $listProdutos[$cont]->idProduto=$rs['idProduto'];
-            $listProdutos[$cont]->codigo=$rs['codigo'];
-            $listProdutos[$cont]->descricao=$rs['descricao'];
-            $listProdutos[$cont]->preco=$rs['preco'];
-            $listProdutos[$cont]->quantidade=$rs['quantidade'];
-            $listProdutos[$cont]->idCategoria=$rs['idCategoria'];
-            $listProdutos[$cont]->imagen=$rs['imagen'];
+            $listUsuario[$cont]->idUsuario=$rs['idUsuario'];
+            $listUsuario[$cont]->nome=$rs['nome'];
+            $listUsuario[$cont]->cpf=$rs['cpf'];
+            $listUsuario[$cont]->senha=$rs['senha'];
+            $listUsuario[$cont]->dtnasc=implode("/",array_reverse(explode("-",$rs['dtnasc'])));;
+            $listUsuario[$cont]->idNivel=$rs['idNivel'];
+            $listUsuario[$cont]->usuario=$rs['usuario'];
+
 
 
 
@@ -75,8 +78,8 @@
 
         $conex->Desconectar();
 
-        if (isset($listProdutos)) {
-          return $listProdutos;
+        if (isset($listUsuario)) {
+          return $listUsuario;
         }
       }
 
@@ -113,6 +116,80 @@
         }
 
       }
+
+
+      // SELECIONAR TODOS OS Usuarios
+      public function selectById($dados){
+
+          $sql="select * from tbl_usuario where idUsuario=".$dados->idUsuario;
+          echo $sql;
+          $conex=new Mysql_db();
+          //Faz a conexão com o banco
+          $PDOconex = $conex->Conectar();
+
+          //Executa o select no DB e guarda o retorno na variável select
+          $select = $PDOconex->query($sql);
+
+          $cont=0;
+
+          while ($rs=$select->fetch(PDO::FETCH_ASSOC)) {
+              $listUsuario = new Usuario();
+
+              $listUsuario->idUsuario=$rs['idUsuario'];
+              $listUsuario->nome=$rs['nome'];
+              $listUsuario->cpf=$rs['cpf'];
+              $listUsuario->senha=$rs['senha'];
+              $listUsuario->dtnasc=implode("/",array_reverse(explode("-",$rs['dtnasc'])));
+              $listUsuario->idNivel=$rs['idNivel'];
+              $listUsuario->usuario=$rs['usuario'];
+
+
+
+
+              $cont+=1;
+          }
+
+
+
+          $conex->Desconectar();
+
+          if (isset($listUsuario)) {
+            return $listUsuario;
+          }
+        }
+
+
+      public function Update($dados){
+
+
+            $sql = "UPDATE tbl_usuario SET
+                    nome='".$dados->nome."',
+                    cpf='". $dados->cpf."',
+                    senha='".$dados->senha."',
+                    dtnasc='".$dados->dtnasc."',
+                    usuario='".$dados->usuario."'
+                    WHERE idUsuario=".$dados->idUsuario;
+
+
+
+                   echo $sql;
+
+                  $conex = new Mysql_db();
+
+                  $PDO_conex = $conex->Conectar();
+
+
+
+                  if ($PDO_conex->query($sql)) {
+                    header("location:index.php?pag=usuarios");
+
+                  }else{
+                    echo "erro";
+                  }
+
+                  $conex->Desconectar();
+        }
+
     }
 
 

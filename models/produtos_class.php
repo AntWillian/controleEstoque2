@@ -32,7 +32,7 @@
 
 
         if ($PDO_conex->query($sql)) {
-          //header("location:index.php?pag=carbook");
+          header("location:index.php?pag=gerenciamento");
         }else{
           echo "erro";
         }

@@ -1,3 +1,72 @@
+
+
+<!-- script  -->
+
+  <script>
+      $(document).ready(function () {
+
+
+        //Efeito para abrir a div Container com timer de 2 segundos (Novo Registro)
+        $(".novo").click(function(){
+           $(".modalContainer").slideToggle(2000);
+
+        });
+
+        //Efeito para abrir a div Container com timer de 2 segundos (Novo Registro)
+          $(".editar").click(function(){
+             $(".modalContainer").fadeIn(2000);
+
+          });
+
+
+
+      });
+
+      function Editar(idItem){
+
+        $.ajax({
+          type: "GET",
+          url: "views/novoUsuario.php",
+          data: {modo:'buscarId',idUsuario:idItem},
+          success: function(dados){
+            $('.modal2').html(dados);
+          }
+
+        });
+      }
+
+      function Excluir(idIten){
+
+        var resposta;
+
+        resposta = confirm('Deseja excluir?');
+
+        if (resposta==true)
+        {
+        //alert(idIten);
+          $.ajax({
+              type: "GET",
+              url: "router.php?controller=produtos&modo=excluir&idProduto="+idIten,
+              // data: {modo:'excluir',id:idIten},
+              success: function(dados){
+                  $('.dadosDaMovimentacao').html(dados);
+                  //alert ();
+              }
+          });
+        }
+      }
+  </script>
+
+
+
+ <div class="modalContainer">
+   <div class="modal2">
+
+   </div>
+ </div>
+
+
+
 <div class="conteudo_produtos2">
   <h1>Produtos</h1>
 
@@ -25,11 +94,11 @@
 
             <?php
             //Inclui as classes
-            require_once("controllers/controller_produtos.php");
-            require_once("models/produtos_class.php");
+            require_once("controllers/controller_usuario.php");
+            require_once("models/usuario_class.php");
 
 
-            $controller_cadUser= new controllerProduto();
+            $controller_cadUser= new controllerUsuario();
             $list = $controller_cadUser::Selecionar();
             $cont = 0;
 
@@ -43,16 +112,17 @@
 
            ?>
             <tr class="<?php echo $cor ?>">
-              <td><?php echo (utf8_decode("# ".$list[$cont]->codigo)) ?></td>
-              <td><?php echo (utf8_decode($list[$cont]->descricao)) ?></td>
+              <td><?php echo (utf8_decode("# ".$list[$cont]->nome)) ?></td>
+              <td><?php echo (utf8_decode($list[$cont]->cpf)) ?></td>
               <td><?php
-               echo (utf8_decode("R$ ".str_replace(".", ",", $list[$cont]->preco)))
+               echo (utf8_decode($list[$cont]->usuario))
                ?></td>
-              <td><?php echo (utf8_decode($list[$cont]->quantidade)) ?></td>
+              <td><?php echo (utf8_decode($list[$cont]->dtnasc)) ?></td>
               <td>
-                <a href="/assets/javascripts/manual/fake-response/save.json" data-confirm-text="Confirma exclusão do item?" class="text-danger">
-                  Excluir
-                </a>
+
+                <a href="#" class="editar" onclick="Editar(<?php echo $list[$cont]->idUsuario?>)">Editar</a>
+
+
               </td>
             </tr>
 

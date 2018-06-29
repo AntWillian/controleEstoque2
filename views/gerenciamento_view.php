@@ -132,7 +132,7 @@
 
 
                   <a href="#" class="editar" onclick="Editar(<?php echo $list[$cont]->idProduto?>)">Editar</a>
-                  <a href="#" class="excluir" onclick="Excluir(<?php echo ($list[$cont]->idProduto) ?>)"> Excluir </a>
+                  <a href="#" class="excluir text-danger" onclick="Excluir(<?php echo ($list[$cont]->idProduto) ?>)"> Excluir </a>
 
 
                 <!-- <a data-toggle="modal" data-target="#exampleModal" href="index.php?pag=gerenciamento&idProduto=<?php echo $list[$cont]->idProduto?>">Editar</a> -->
@@ -233,7 +233,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="FrmProdutos" action="router.php?controller=movimentacao&modo=novo" method="post">
+        <form class="FrmMovimentacao" action="router.php?controller=movimentacao&modo=novo" method="post">
           <div class="form-group col-md-4">
 
 

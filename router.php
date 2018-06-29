@@ -116,6 +116,12 @@
              //echo "string";
           break;
 
+          case 'editar':
+                $controller_Produto= new controllerUsuario();
+                $controller_Produto::editar();
+                 //echo "string";
+              break;
+
 
       }
 
