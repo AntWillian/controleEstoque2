@@ -1,3 +1,10 @@
+<?php
+if (isset($_SESSION['idUsuario'])) {
+$id = $_SESSION['idUsuario'];
+echo $id;
+
+}
+ ?>
 
 
 <!-- script  -->

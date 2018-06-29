@@ -7,13 +7,19 @@
 
     //CADASTRO DE PRODUTOS
     public function novo(){
+        session_start();
         $movimentacao = new Movimentacao();
         $movimentacao ->idProduto = $_POST['slcProduto'];
         $movimentacao ->idTipoMovimentacao = $_POST['slcTipo'];
         $movimentacao ->quantidade = $_POST['txtQuantidade'];
         $movimentacao ->descricao = $_POST['txtDescricao'];
+        if (isset($_SESSION['idUsuario'])) {
+        $id = $_SESSION['idUsuario'];
+        echo $id;
+        $movimentacao ->idUsuario =$id;
+        }
 
-        $movimentacao ->idUsuario =1;
+
 
 
 
