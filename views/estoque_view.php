@@ -77,7 +77,8 @@
         <thead>
           <tr>
             <th class="ls-nowrap col-xs-3">Data</th>
-            <th class="hidden-xs">Entidade
+            <th class="ls-table-actions">Produto
+            <th class="hidden-xs">Entidade</th>
             <th class="hidden-xs">Tipo</th>
             <th class="hidden-xs">Qnt. movim.</th>
             <th class="ls-table-actions">Descricao</th>
@@ -106,6 +107,8 @@
          ?>
           <tr class="<?php echo $cor ?>">
             <td><?php echo (utf8_decode($list[$cont]->data)) ?></td>
+            <td><?php echo (utf8_decode($list[$cont]->descricaoProduto)) ?></td>
+
             <td><?php echo (utf8_decode($list[$cont]->nome)) ?></td>
             <td><?php
              echo (utf8_decode($list[$cont]->tipo))

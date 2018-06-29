@@ -1,5 +1,4 @@
 <?php
-echo "string";
     switch ($_GET["controller"]) {
 
 
@@ -18,6 +17,19 @@ echo "string";
               $controller_Produto::novo();
                //echo "string";
             break;
+
+        case 'editar':
+              $controller_Produto= new controllerProduto();
+              $controller_Produto::editar();
+               //echo "string";
+            break;
+
+      case 'excluir':
+            $controller_Produto= new controllerProduto();
+            $controller_Produto::excluir();
+             //echo "string";
+          break;
+
 
       }
 
@@ -77,6 +89,30 @@ echo "string";
       case 'pesquisa':
             $controller_movimentacao= new controllerMovimentacao();
             $controller_movimentacao::pesquisaGrafico();
+             //echo "string";
+          break;
+
+
+      }
+
+      // graficos
+      case 'usuario':
+
+      //Inclui as classes
+      require_once("controllers/controller_usuario.php");
+      require_once("models/usuario_class.php");
+
+      switch ($_GET['modo']) {
+
+      case 'novo':
+            $controller_usuario= new controllerUsuario();
+            $controller_usuario::novo();
+             //echo "string";
+          break;
+
+      case 'login':
+            $controller_usuario= new controllerUsuario();
+            $controller_usuario::login();
              //echo "string";
           break;
 

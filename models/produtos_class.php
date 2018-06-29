@@ -81,6 +81,107 @@
       }
 
 
+      // SELECIONAR TODOS OS PRODUTOS
+      public function selectById($Produto){
+
+          $sql="select * from tbl_produto where idProduto=".$Produto->idProduto;
+
+          $conex=new Mysql_db();
+          //Faz a conexão com o banco
+          $PDOconex = $conex->Conectar();
+
+          //Executa o select no DB e guarda o retorno na variável select
+          $select = $PDOconex->query($sql);
+
+
+          if ($rs=$select->fetch(PDO::FETCH_ASSOC)) {
+              $listProdutos = new Produto();
+
+              $listProdutos->idProduto=$rs['idProduto'];
+              $listProdutos->codigo=$rs['codigo'];
+              $listProdutos->descricao=$rs['descricao'];
+              $listProdutos->preco=$rs['preco'];
+              $listProdutos->quantidade=$rs['quantidade'];
+              $listProdutos->idCategoria=$rs['idCategoria'];
+              $listProdutos->imagen=$rs['imagen'];
+
+          }
+
+
+
+          $conex->Desconectar();
+
+          if (isset($listProdutos)) {
+            return $listProdutos;
+          }
+        }
+
+
+        public function Update($dados){
+
+
+              $sql = "UPDATE tbl_produto SET
+                      codigo='".$dados->codigo."',
+                      preco='".str_replace(",", ".", $dados->preco)."',
+                      descricao='".$dados->descricao."',
+                      quantidade='".$dados->quantidade."',
+                      idCategoria='".$dados->idCategoria."'
+                      WHERE idProduto=".$dados->idProduto;
+
+
+
+                     echo $sql;
+
+                    $conex = new Mysql_db();
+
+                    $PDO_conex = $conex->Conectar();
+
+
+
+                    if ($PDO_conex->query($sql)) {
+                      header("location:index.php?pag=gerenciamento");
+
+                    }else{
+                      echo "erro";
+                    }
+
+                    $conex->Desconectar();
+          }
+
+
+          public function Delete($dados){
+              $sql="Delete from tbl_movimentacao where idProduto=".$dados->idProduto;
+              echo $sql;
+              $conex = new Mysql_db();
+
+              $PDO_conex = $conex->Conectar();
+
+
+
+              if ($PDO_conex->query($sql)) {
+
+                $sql="Delete from tbl_produto where idProduto=".$dados->idProduto;
+                echo $sql;
+                $conex = new Mysql_db();
+
+                $PDO_conex = $conex->Conectar();
+
+
+
+                if ($PDO_conex->query($sql)) {
+                  //header("location:index.php?pag=gerenciamento");
+                }
+
+
+              }else{
+                echo "erro ao deletar";
+              }
+
+              $conex->Desconectar();
+
+            }
+
+
 
   }
 

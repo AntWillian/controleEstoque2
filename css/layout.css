@@ -191,16 +191,16 @@ width: 98%;
 }
 
 
-/* .modal{
-	width:30%;
-	height:80%;
-  margin-left: 25%;
+ .modal2{
+	width:80%;
+	height:100%;
 
-	background-color:#fff;
+
+	/* background-color:#fff; */
 	/* margin:auto; */
   /*margin-left: auto;
   margin-right: auto;*/
-/*
+
 }
 
 .modalContainer{
@@ -209,10 +209,10 @@ width: 98%;
 	background: rgba(0, 0, 0, 0.7);
 	position:fixed;
   /* margin: auto; */
-	/* display:none;
+	display:none;
   z-index: 999;
 
-} */
+}
 
 .cadastro_produto{
   width: 100%;
@@ -229,7 +229,8 @@ width: 98%;
 .barraEntrada{
   /* width: 70px; */
   height: 20px;
-  background-color: green;
+  background-color:
+#31db2b;
   margin-bottom: 2px;
   /* float: left; */
 margin-left: 70px;
@@ -239,7 +240,7 @@ margin-left: 70px;
 .barraSaida{
   /* width: 50%; */
   height: 20px;
-  background-color: purple;
+  background-color: #d83838;
   margin-bottom: 10px;
   /* float: left; */
 margin-left: 70px;
@@ -312,3 +313,196 @@ margin-left: 70px;
 .margin{
   margin-left: 20px;
 }
+
+/* GERAL */
+
+/* LOGINUSUARIO */
+
+.containerLogo{
+    width: 250px;
+    height: 100px;
+    /*margin-top: 150px;
+    margin-right: auto;
+     margin-left: auto;*/
+    margin: 0 auto;
+    top: 20%;
+    position: absolute;
+    left: 50%;
+    margin-left: -125px;
+}
+
+.form-groupDir{
+    margin-left: 0px;
+    float: left;
+}
+
+.backLeft {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #6bb27d;
+  background-image:url(../imagens/loginPaciente.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+#back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -999;
+}
+
+#slideBox {
+  width: 50%;
+  max-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin-left: 50%;
+  position: absolute;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.topLayer {
+  width: 200%;
+  height: 100%;
+  position: relative;
+  left: 0;
+  left: -100%;
+}
+
+.left {
+  width: 50%;
+  height: 100%;
+  background: #2C3034;
+  left: 0;
+  position: absolute;
+}
+
+.right {
+  width: 50%;
+  height: 100%;
+  background: #f9f9f9;
+  right: 0;
+  position: absolute;
+}
+
+.content {
+  width: 250px;
+  margin: 0 auto;
+  top: 30%;
+  position: absolute;
+  left: 50%;
+  margin-left: -125px;
+}
+
+.content h2 {
+  color: #6bb27d;
+  font-weight: 300;
+  font-size: 35px;
+}
+
+button {
+  background: #6bb27d;
+  padding: 10px 16px;
+  width: auto;
+  font-weight: 600;
+  text-transform:  uppercase;
+  font-size: 14px;
+  color: #fff;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+  border: 0;
+  outline: 0;
+  margin: 15px 15px 15px 0;
+  transition: all 0.25s;
+}
+
+button:hover {
+  background: #43704e;
+  box-shadow: 0 4px 7px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    color: #eee;
+}
+.off {
+  background-color: none;
+  color: #6bb27d;
+  box-shadow: none;
+}
+
+.right .off:hover {
+  background: #eee;
+  color: #6bb27d;
+  box-shadow: none;
+}
+.left .off:hover {
+  box-shadow: none;
+  color: #6bb27d;
+  background: #363A3D;
+}
+
+input{
+    border-radius: 10px;
+    height: 30px;
+    margin-top: 20px;
+    border: solid 2px #6bb27d;
+    outline: none;
+    width: 250px;
+    padding: 2px;
+}
+
+/* LOGIN RESPONSIVO */
+  #principal_login {
+    width: auto;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: #ccc; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    border: solid 2px #6bb27d;
+  }
+
+  #principal_login h1 {
+    color: #6bb27d;
+  }
+
+  #principal_login a {
+    text-decoration: none;
+    color: #6bb27d;
+    height: 25px;
+    padding: 5px;
+  }
+
+  #principal_login a:hover {
+    color: #555;
+  }
+
+  #principal_login input {
+    border-radius: 10px;
+    height: 25px;
+    margin-top: 20px;
+    border: solid 2px #6bb27d;
+    background-color: #fff;
+    outline: none;
+    width: 250px;
+  }
+
+  #principal_login input[type=submit] {
+    height: 30px;
+    width: 100px;
+    border-radius: 0;
+    margin-left: 30%;
+    color: #6bb27d;
+    margin-bottom: 20px;
+  }
+
+  #principal_login input[type=submit]:hover {
+    background-color: #43704e;
+    color: #43704e;
+    border: solid 1px #43704e;
+    cursor: pointer;
+  }

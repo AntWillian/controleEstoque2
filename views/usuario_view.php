@@ -114,7 +114,7 @@
 
             <div class="form-group col-md-4">
               <label for="inputState">Nivel</label>
-              <select name="slccategoria" id="inputState" class="form-control">
+              <select name="slcnivel" id="inputState" class="form-control">
                 <option selected value="1">Admim</option>
                 <option value="2">cataloguista</option>
               </select>

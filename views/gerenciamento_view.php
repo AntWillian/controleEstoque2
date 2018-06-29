@@ -1,4 +1,74 @@
 
+
+<!-- script  -->
+
+  <script>
+      $(document).ready(function () {
+
+
+        //Efeito para abrir a div Container com timer de 2 segundos (Novo Registro)
+        $(".novo").click(function(){
+           $(".modalContainer").slideToggle(2000);
+
+        });
+
+        //Efeito para abrir a div Container com timer de 2 segundos (Novo Registro)
+          $(".editar").click(function(){
+             $(".modalContainer").fadeIn(2000);
+
+          });
+
+
+
+      });
+
+      function Editar(idItem){
+
+        $.ajax({
+          type: "GET",
+          url: "views/cadastro_produto.php",
+          data: {modo:'buscarId',idProduto:idItem},
+          success: function(dados){
+            $('.modal2').html(dados);
+          }
+
+        });
+      }
+
+      function Excluir(idIten){
+
+        var resposta;
+
+        resposta = confirm('Deseja excluir?');
+
+        if (resposta==true)
+        {
+        //alert(idIten);
+          $.ajax({
+              type: "GET",
+              url: "router.php?controller=produtos&modo=excluir&idProduto="+idIten,
+              // data: {modo:'excluir',id:idIten},
+              success: function(dados){
+                  $('.dadosDaMovimentacao').html(dados);
+                  //alert ();
+              }
+          });
+        }
+      }
+  </script>
+
+
+
+ <div class="modalContainer">
+   <div class="modal2">
+
+   </div>
+ </div>
+
+
+<div class="conteudo_padrao">
+
+
 <div class="conteudo_produtos2">
   <h1>Produtos</h1>
 
@@ -59,9 +129,17 @@
                 }
                ?></td>
               <td>
-                <a href="/assets/javascripts/manual/fake-response/save.json" data-confirm-text="Confirma exclusão do item?" class="text-danger">
+
+
+                  <a href="#" class="editar" onclick="Editar(<?php echo $list[$cont]->idProduto?>)">Editar</a>
+                  <a href="#" class="excluir" onclick="Excluir(<?php echo ($list[$cont]->idProduto) ?>)"> Excluir </a>
+
+
+                <!-- <a data-toggle="modal" data-target="#exampleModal" href="index.php?pag=gerenciamento&idProduto=<?php echo $list[$cont]->idProduto?>">Editar</a> -->
+                  <!-- <a href="#" class="editar text-danger" onclick="Editar(<?php echo ($listPlanos[$cont]->id) ?>)">Excluir</a> -->
+                <!-- <a href="/assets/javascripts/manual/fake-response/save.json" data-confirm-text="Confirma exclusão do item?" class="text-danger">
                   Excluir
-                </a>
+                </a> -->
               </td>
             </tr>
 
@@ -149,7 +227,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Novo Produto</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Nova Movimentacao</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -161,8 +239,27 @@
 
           <label for="inputState">Selecionar produto</label>
             <select name="slcProduto" id="inputState" class="form-control">
-              <option selected value="1">Coca Cola</option>
-              <option value="2">Arroz</option>
+
+              <?php
+              //Inclui as classes
+              require_once("controllers/controller_produtos.php");
+              require_once("models/produtos_class.php");
+
+
+              $controller_cadUser= new controllerProduto();
+              $list = $controller_cadUser::Selecionar();
+              $cont = 0;
+
+              while ($cont <count($list)) {
+
+
+             ?>
+              <option value="<?php echo (utf8_decode($list[$cont]->idProduto)) ?>"><?php echo (utf8_decode($list[$cont]->descricao)) ?></option>
+            <?php
+            $cont += 1;
+
+          }
+             ?>
             </select>
           </div>
 
