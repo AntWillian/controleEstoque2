@@ -22,6 +22,7 @@
       </div>
 
       <div class="dadosUser">
+
           <div class="nome">
             <div class="imgUser">
                 <img src="images/user.png" alt="">
@@ -30,6 +31,11 @@
             <div class="nomeUser">
                 <p>Antonio willian</p>
             </div>
+
+
+          </div>
+          <div class="sairDDD">
+              <a href="?out=1">Sair</a>
           </div>
       </div>
   </header>
@@ -41,7 +47,15 @@
         <div class="menu">
 
           <div class="titulo_menu">
-              <p>Produtos</p>
+            <div class="imagemMenu">
+              <img src="images/produto.png" alt="">
+            </div>
+
+            <div class="nomeMenu">
+                <p>Produtos</p>
+            </div>
+
+
           </div>
 
           <div class="item_menu">
@@ -54,12 +68,21 @@
           </div>
 
           <div class="item_menu">
-            <p><a href="?pag=estoque">Estoque</a></p>
+            <p><a href="?pag=estoque">Movimentacao</a></p>
           </div>
 
           <div class="titulo_menu">
-              <p>Usuarios</p>
+            <div class="imagemMenu">
+              <img src="images/user.png" alt="">
+            </div>
+
+            <div class="nomeMenu">
+                <p>usuarios</p>
+            </div>
+
+
           </div>
+
           <div class="item_menu">
             <p><a href="?pag=usuarios">Gerenciamento</a></p>
           </div>
@@ -69,7 +92,13 @@
 
         <div class="conteudo_produtos">
             <?php
+            
+
+            if (isset($_GET['pag'])) {
             $pag = $_GET['pag'];
+          }else{
+            $pag="home";
+          }
             switch ($pag) {
 
               case 'home':

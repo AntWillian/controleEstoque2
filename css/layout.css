@@ -91,14 +91,14 @@ header{
 
 .Principal{
   width: 100%;
-  height: 91vh;
+  height: 100vh;
   /* background-color: blue; */
 }
 
 .menu{
   width: 20%;
   height: 100%;
-  background-color: red;
+  background-color: #000;
   float: left;
 }
 
@@ -109,29 +109,60 @@ header{
 .titulo_menu{
   width: 100%;
   height: 5%;
-  background-color: #4f9bc1;
+  background-color: #1f211f;
+    margin-top: 2%;
 
 }
 
 .titulo_menu p{
   margin: 0;
-  padding-top: 3%;
-  padding-left: 5%;
+  /* padding-top: 3%;
+  padding-left: 5%; */
   font-size: 150%;
   color: #DADADA;
+
 }
 
-.titulo_menu p a{
+.imagemMenu{
+  width: 15%;
+  height: 100%;
+  padding-left: 4%;
+  float: left;
+
+}
+
+.imagemMenu img{
+  width: 100%;
+  height: 100%;
+
+}
+
+.nomeMenu{
+  width: 68%;
+  height: 100%;
+  float: left;
+  /* background-color: purple; */
+  padding-left: 2%;
+}
+
+.nomeMenu p a{
 
   color: #DADADA;
   text-decoration: none;
 
 }
 
+.sairDDD{
+  width: 50px;
+  height: 40px;
+  float: left;
+  margin-left: 170px;
+  margin-top:-20px;
+}
 
 .item_menu{
   width: 100%;
-  height: 4%;
+  height: 5%;
   /*border-bottom: 2px solid #2E353F;*/
 }
 
@@ -143,8 +174,8 @@ width: 98%;
 .item_menu p{
   margin: 0px;
   padding-left: 20%;
-  font-size: 130%;
-  padding-top: 3%;
+  font-size: 120%;
+
 }
 
 .item_menu a{
